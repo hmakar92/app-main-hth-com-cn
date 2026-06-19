@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华体会 | 轻量导航介绍页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: #f9f5f0;  /* 米白基调 */
+            color: #3d3d3d;
+            line-height: 1.7;
+            padding: 0 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #fffcf7;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.03);
+            border-radius: 24px;
+            padding: 20px 30px;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        /* 顶部导航 */
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 16px 0;
+            border-bottom: 1px solid #eae3d9;
+            margin-bottom: 28px;
+        }
+
+        .nav-brand {
+            font-weight: 600;
+            font-size: 1.6rem;
+            letter-spacing: 1px;
+            color: #6b5344;
+        }
+        .nav-brand span {
+            background: #dac9b9;
+            padding: 2px 12px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #3d2f27;
+            margin-left: 10px;
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5f5145;
+            font-size: 0.95rem;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #b79f8a;
+            color: #2c241e;
+        }
+
+        .nav-links .active {
+            border-bottom-color: #a5876e;
+            color: #2c241e;
+            font-weight: 500;
+        }
+
+        /* hero 区域 */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 32px 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: #3d322a;
+            letter-spacing: -0.3px;
+            line-height: 1.3;
+            max-width: 800px;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            background: #efe4d9;
+            padding: 0 10px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: #5a4f44;
+            max-width: 780px;
+            margin: 6px 0;
+        }
+
+        .hero .intro-link {
+            background: #ece2d7;
+            padding: 6px 16px;
+            border-radius: 40px;
+            display: inline-block;
+            font-size: 0.95rem;
+            margin-top: 10px;
+        }
+
+        .hero .intro-link a {
+            color: #3d2f27;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #b79f8a;
+            font-weight: 500;
+        }
+
+        /* 卡片/引用块风格 */
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 380;
+            margin: 40px 0 20px;
+            color: #4c3e33;
+            border-left: 4px solid #cbb7a5;
+            padding-left: 16px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 22px 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 4px rgba(0,0,0,0.02);
+            border: 1px solid #eee7df;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .card h3 {
+            font-weight: 500;
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            color: #3f332b;
+        }
+
+        .card p {
+            color: #5f5246;
+            font-size: 0.96rem;
+            margin-bottom: 6px;
+        }
+
+        .card .tag {
+            display: inline-block;
+            background: #ede4db;
+            font-size: 0.75rem;
+            padding: 2px 12px;
+            border-radius: 30px;
+            color: #4b3e34;
+            margin-top: 8px;
+        }
+
+        /* 引用块 / 提示框 */
+        .callout {
+            background: #f6efe7;
+            padding: 22px 26px;
+            border-radius: 20px;
+            margin: 36px 0;
+            border-left: 5px solid #b3987c;
+            font-size: 0.98rem;
+            color: #3a3028;
+        }
+
+        .callout strong {
+            font-weight: 600;
+            color: #2f241d;
+        }
+
+        .callout a {
+            color: #5c4535;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        /* 常见说明区 (FAQ摘要) */
+        .faq-item {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 18px 24px;
+            margin: 14px 0;
+            border: 1px solid #ece3d9;
+        }
+
+        .faq-item .q {
+            font-weight: 500;
+            color: #3d3128;
+            margin-bottom: 4px;
+        }
+
+        .faq-item .a {
+            color: #645649;
+            font-size: 0.94rem;
+            padding-left: 6px;
+        }
+
+        .faq-item .a a {
+            color: #624d3b;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .more-faq {
+            margin-top: 12px;
+            font-size: 0.95rem;
+            color: #6b5c4e;
+        }
+
+        /* 场景模块 (三个) */
+        .scene-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            margin: 16px 0 10px;
+        }
+
+        .scene-card {
+            flex: 1 1 200px;
+            background: #fcf9f5;
+            border-radius: 28px;
+            padding: 24px 18px;
+            border: 1px solid #e7ddd2;
+        }
+
+        .scene-card .emoji-bg {
+            font-size: 2.4rem;
+            margin-bottom: 6px;
+        }
+
+        .scene-card h4 {
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #3f3229;
+        }
+
+        .scene-card p {
+            font-size: 0.9rem;
+            color: #635549;
+        }
+
+        /* 页脚 */
+        .footer-note {
+            margin-top: 48px;
+            padding: 24px 0 16px;
+            border-top: 1px solid #e6ddd2;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #786a5b;
+        }
+
+        .footer-note a {
+            color: #4c3d30;
+            text-decoration: none;
+            border-bottom: 1px solid #cbb7a5;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .container {
+                padding: 16px 18px;
+                border-radius: 16px;
+            }
+            .nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .nav-links {
+                gap: 20px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .section-title {
+                font-size: 1.2rem;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            .scene-wrapper {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- 顶部导航 -->
+    <nav class="nav">
+        <div class="nav-brand">
+            hth<span>轻量导航</span>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="active">站点</a>
+            <a href="#">场景</a>
+            <a href="#">说明</a>
+            <a href="#">常见</a>
+        </div>
+    </nav>
+
+    <!-- hero 介绍 -->
+    <div class="hero">
+        <h1>关于 <em>华体会</em> · 从站点到日常</h1>
+        <p>
+            这个名字对不少人来说并不陌生，它经常出现在对稳定与体验有要求的用户视野里。
+            我们更愿意把它看作一个持续提供基础服务的入口，没有过于复杂的修饰，
+            只希望每次打开都是清晰而熟悉的界面。
+        </p>
+        <p class="intro-link">
+            ➜ 了解更多关于 <a href="https://app-main-hth.com.cn">华体会</a> 的信息，或直接访问其主站。
+        </p>
+    </div>
+
+    <!-- 核心介绍 / 可信说明 混合 -->
+    <h2 class="section-title">站点印象</h2>
+    <div class="card-grid">
+        <div class="card">
+            <h3>稳定取向</h3>
+            <p>服务持续在线，历史运营中积累了一定的用户信任，日常访问流畅，不折腾。</p>
+            <span class="tag">长期维护</span>
+        </div>
+        <div class="card">
+            <h3>界面直觉</h3>
+            <p>没有冗余的跳转，信息层级清晰，适合习惯直接操作的人。</p>
+            <span class="tag">不迷路</span>
+        </div>
+        <div class="card">
+            <h3>使用场景</h3>
+            <p>无论是碎片时间还是固定习惯，都能自然融入日常。</p>
+            <span class="tag">轻量依赖</span>
+        </div>
+    </div>
+
+    <!-- 引用块 / 提示框 风格 -->
+    <div class="callout">
+        <strong>📌 一点说明</strong><br>
+        初次接触的朋友可能会好奇这个站到底做什么。简单说，它是一个提供特定服务的平台。
+        如果你希望找一个长期可用的服务点，<a href="https://app-main-hth.com.cn">华体会</a> 值得放进书签。
+        同时我们也建议通过正规渠道了解最新情况，保持信息同步。
+    </div>
+
+    <!-- 三个场景模块 -->
+    <h2 class="section-title">常见场景</h2>
+    <div class="scene-wrapper">
+        <div class="scene-card">
+            <div class="emoji-bg">📱</div>
+            <h4>移动端顺手</h4>
+            <p>适配良好，在手机或平板上浏览也不会觉得局促，随时随地可操作。</p>
+        </div>
+        <div class="scene-card">
+            <div class="emoji-bg">🖥️</div>
+            <h4>桌面端专注</h4>
+            <p>大屏下信息展示更完整，适合需要同时处理多任务的用户。</p>
+        </div>
+        <div class="scene-card">
+            <div class="emoji-bg">🔄</div>
+            <h4>日常切换</h4>
+            <p>不同设备间无缝衔接，登录一次即可，省去反复验证的麻烦。</p>
+        </div>
+    </div>
+
+    <!-- 常见说明 (FAQ 摘要) -->
+    <h2 class="section-title">常见说明</h2>
+    <div class="faq-item">
+        <div class="q">▪ 这个站点安全吗？</div>
+        <div class="a">任何网络服务都建议用户自行判断。从公开信息看，<a href="https://app-main-hth.com.cn">华体会</a> 持续运营，并有一定用户基础，但请根据自身情况决定。</div>
+    </div>
+    <div class="faq-item">
+        <div class="q">▪ 新用户如何开始？</div>
+        <div class="a">直接访问主站，注册或登录即可。界面引导比较清晰，不需要额外教程。如果遇到问题，可以查看站内帮助。</div>
+    </div>
+    <div class="faq-item">
+        <div class="q">▪ 与其他平台相比有什么不同？</div>
+        <div class="a">更偏向简洁实用，没有过多花哨功能，核心体验稳定。适合不喜欢频繁变动的人长期使用。</div>
+    </div>
+    <div class="more-faq">
+        ⚡ 更多细节请自行探索，建议以官方信息为准。
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        本页为轻量导航介绍 · 主站：<a href="https://app-main-hth.com.cn">华体会</a><br>
+        <span style="color:#998b7c;">© 介绍页 · 内容仅供参考，不构成任何保证</span>
+    </div>
+</div>
+</body>
+</html>
